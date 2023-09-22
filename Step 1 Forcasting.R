@@ -19,15 +19,12 @@ library(ggplot2)
 #First looking at the shape of pricing time series? 
 ggplot(data=prices)+
   geom_line(aes(x=Date, y=GOOG.Adjusted))
-#is this non-stationary, semi-stationary, strong-stationary? 
 
 ggplot(data=prices)+
   geom_line(aes(x=Date, y=TLT.Adjusted))
-#is this non-stationary, semi-stationary, strong-stationary? 
 
 ggplot(data=prices)+
   geom_line(aes(x=Date, y=VNQ.Adjusted))
-#is this non-stationary, semi-stationary, strong-stationary? 
 
 #let's take a look at all securities together.....
 compare_chart <- ggplot(data=prices)+
@@ -35,7 +32,6 @@ compare_chart <- ggplot(data=prices)+
   geom_line(aes(x=Date, y=TLT.Adjusted), color="red")+
   geom_line(aes(x=Date, y=VNQ.Adjusted), color="green4")
 print(compare_chart)
-#does this chart make any sense? Can we easily compare the securities? 
 
 #we can also make this chart interactive by using plotly: 
 #install.packages("plotly")
@@ -50,15 +46,12 @@ ggplotly(compare_chart)
 #First looking at the shape of ROR time series? 
 ggplot(data=rets)+
   geom_line(aes(x=Date, y=returns_GOOG))
-#is this non-stationary, semi-stationary, strong-stationary? 
 
 ggplot(data=rets)+
   geom_line(aes(x=Date, y=returns_TLT))
-#is this non-stationary, semi-stationary, strong-stationary? 
 
 ggplot(data=rets)+
   geom_line(aes(x=Date, y=returns_VNQ))
-#is this non-stationary, semi-stationary, strong-stationary? 
 
 
 #let's take a look at all securities together.....
@@ -67,7 +60,6 @@ compare_ror <- ggplot(data=rets)+
   geom_line(aes(x=Date, y=returns_TLT), color="red")+
   geom_line(aes(x=Date, y=returns_VNQ), color="green4")
 print(compare_ror)
-#does this chart make any sense? Can we easily compare the securities? Which time series have stronger stationarity
 
 
 #################################################################
