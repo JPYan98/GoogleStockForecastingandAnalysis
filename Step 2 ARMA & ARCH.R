@@ -3,7 +3,7 @@
 ####################################################
 
 #we need to load content from the 5th session - we need the UDFs and libraries
-source("D:/R coding classes/Class 2 Forcasting.R")
+source("D:/Step 1 Forcasting.R")
 
 #let's take one more look at the prices for all 3 securities:
 compare_chart <- ggplot(data=prices)+
@@ -33,18 +33,18 @@ adf.test(rets$returns_GOOG) #p-value low so it's stationary
 # we'll need to convert our data frame to a ts object first, ts=timeseries, frequency=250 since trading days in a year
 GOOG_ts <- ts(prices[,c("Date", "GOOG.Adjusted")], frequency = 250, start=c(2007, 1, 3))
 dec <- decompose(GOOG_ts)
-plot(dec) # What is the business insights here? 
+plot(dec) 
 
 TLT_ts <- ts(prices[,c("Date", "TLT.Adjusted")], frequency = 250, start=c(2007, 1, 3))
 dec <- decompose(TLT_ts)
-plot(dec) # What is the business insights here? 
+plot(dec)
 
 VNQ_ts <- ts(prices[,c("Date", "VNQ.Adjusted")], frequency = 250, start=c(2007, 1, 3))
 dec <- decompose(VNQ_ts)
-plot(dec) # What is the business insights here? 
+plot(dec)
 
 ####################################################
-#### ACF and pACF - daily timeseries analysis #######
+#### ACF and pACF - daily time-series analysis #######
 ####################################################
 #WE WILL USE DAILY RETURNS - ROR for this because it is stationary
 #ACF - will show us the moving average (MA) component - TRENDING of errors
